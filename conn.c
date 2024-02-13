@@ -499,6 +499,9 @@ static int property_type(int property)
 #ifdef CS_SEC_ENCRYPTION
     case CS_SEC_ENCRYPTION:
 #endif
+#ifdef CS_SEC_EXTENDED_ENCRYPTION
+    case CS_SEC_EXTENDED_ENCRYPTION:
+#endif
 #ifdef CS_SEC_INTEGRITY
     case CS_SEC_INTEGRITY:
 #endif
@@ -510,6 +513,9 @@ static int property_type(int property)
 #endif
 #ifdef CS_SEC_NETWORKAUTH
     case CS_SEC_NETWORKAUTH:
+#endif
+#ifdef CS_SEC_NON_ENCRYPTION_RETRY
+    case CS_SEC_NON_ENCRYPTION_RETRY:
 #endif
 	return OPTION_BOOL;
 #ifdef CS_CON_STATUS

@@ -1,3 +1,8 @@
+2024-02-13  Mark Niggemann <mark.j.niggemann@gmail.com>
+    setup.py - fixed test for 64-bit build
+    conn.c, sybasect.c - Added support for asymmetric password encryption
+    doc/connobj.tex
+
 2012-06-07  Robert Boehne  <rboehne@users.sourceforge.net>
 M       setup.py
 M       sybasect.c

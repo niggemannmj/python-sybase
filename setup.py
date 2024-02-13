@@ -63,7 +63,7 @@ if os.environ.has_key('SYBASE'):
         sybase = os.path.join(sybase, ocs)
 
 have64bit = False
-if sys.maxint > 2147483647:
+if sys.maxsize > 2147483647:
     have64bit = True
 
 if os.name == 'posix':                  # unix
@@ -111,7 +111,10 @@ elif os.name == 'nt':                   # win32
     syb_libs = ['libblk', 'libct', 'libcs']
     # This seems a bit sloppy to me, but is no worse than what's above.
     if sybase.find('15') > 0:
-        syb_libs = ['libsybblk', 'libsybct', 'libsybcs']
+        if have64bit:
+            syb_libs = ['libsybblk64', 'libsybct64', 'libsybcs64']
+        else:
+            syb_libs = ['libsybblk', 'libsybct', 'libsybcs']
 else:                                   # unknown
     import sys
     sys.stderr.write(
@@ -247,7 +250,7 @@ class my_sdist(sdist):
         sdist.run(self)
 
 setup(name="python-sybase",
-      version="0.40",
+      version="0.41",
       maintainer=u"Sebastien Sable",
       maintainer_email="sable@users.sourceforge.net",
       description=doclines[0],

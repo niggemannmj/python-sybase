@@ -745,6 +745,12 @@ static value_desc sybase_args[] = {
 #ifdef CS_SEC_ENCRYPTION
     SYVAL(VAL_PROPS, CS_SEC_ENCRYPTION),
 #endif
+#ifdef CS_SEC_EXTENDED_ENCRYPTION
+    SYVAL(VAL_PROPS, CS_SEC_EXTENDED_ENCRYPTION),
+#endif
+#ifdef CS_SEC_NON_ENCRYPTION_RETRY
+    SYVAL(VAL_PROPS, CS_SEC_NON_ENCRYPTION_RETRY),
+#endif
 #ifdef CS_SEC_CHALLENGE
     SYVAL(VAL_PROPS, CS_SEC_CHALLENGE),
 #endif
@@ -1646,7 +1652,7 @@ void initsybasect(void)
 #endif
 
 
-    if ((rev = PyString_FromString("0.40")) == NULL)
+    if ((rev = PyString_FromString("0.41")) == NULL)
 	goto error;
     if (PyDict_SetItemString(d, "__version__", rev) < 0)
 	goto error;
